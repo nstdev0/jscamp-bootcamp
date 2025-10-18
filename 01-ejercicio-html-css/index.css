@@ -1,0 +1,938 @@
+@import url(main.css);
+
+/* ================================
+   🎨 VARIABLES ADICIONALES
+================================ */
+:root {
+  --header-bg: #101922b3;
+  --card-bg: #1e293b;
+  --card-bg-alt: #242d3a;
+  --border-light: #ffffff1a;
+  --border-medium: #ffffff60;
+  --border-strong: #ffffff77;
+  --text-muted: #ffffffb3;
+  --text-secondary: #94a3b8;
+  --button-primary-bg: #0f2b45;
+  --button-primary-color: #1173d4;
+  --button-secondary-bg: #334155;
+  --header-height: 7rem;
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s ease;
+}
+
+/* ================================
+   🌐 BODY STATES
+================================ */
+body.active {
+  overflow: hidden;
+}
+
+/* ================================
+   🔷 HEADER (MOBILE FIRST)
+================================ */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1rem;
+  background-color: var(--header-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
+  transition: var(--transition-smooth);
+}
+
+.left-side-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.logo-svg {
+  width: 2rem;
+  height: 2rem;
+  stroke: var(--accent-color);
+  stroke-width: 8;
+  transition: var(--transition-fast);
+}
+
+.logo-container:hover .logo-svg {
+  transform: scale(1.05);
+}
+
+.logo-txt {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.action-btns {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.post-job-btn,
+.login-btn {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+}
+
+.post-job-btn {
+  color: var(--button-primary-color);
+  background-color: var(--button-primary-bg);
+}
+
+.post-job-btn:hover {
+  background-color: #143a5a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.post-job-btn:active {
+  transform: translateY(0);
+}
+
+.login-btn {
+  color: #fff;
+  background-color: var(--button-secondary-bg);
+}
+
+.login-btn:hover {
+  background-color: #475569;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* ================================
+   🍔 MENU TOGGLE BUTTONS
+================================ */
+.toggle-burger,
+.toggle-cross {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 2px solid var(--accent-color);
+  border-radius: 0.5rem;
+  background-color: transparent;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.toggle-burger {
+  visibility: visible;
+  opacity: 1;
+  z-index: 999;
+}
+
+.toggle-burger:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-burger.active-burger {
+  transform: rotate(90deg);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.toggle-cross {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1001;
+}
+
+.toggle-cross:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.toggle-cross.active-cross {
+  visibility: visible;
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.menu-toggle-svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke: #fff;
+  transition: var(--transition-fast);
+}
+
+/* ================================
+   📋 FULLSCREEN MENU
+================================ */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.menu ul li {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: var(--transition-fast);
+}
+
+.menu ul li a {
+  font-size: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: #fff;
+  transition: var(--transition-fast);
+}
+
+.menu-svg {
+  width: 3rem;
+  height: 3rem;
+  stroke: #fff;
+  transition: var(--transition-fast);
+}
+
+.menu ul li:hover a,
+.menu ul li:hover .menu-svg {
+  color: var(--accent-color);
+  stroke: var(--accent-color);
+  text-decoration: underline;
+  transform: translateX(0.5rem);
+}
+
+.menu ul li:active {
+  transform: scale(0.95);
+}
+
+/* ================================
+   🧭 MAIN HEADER / HERO
+================================ */
+.main-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 8rem 1.5rem 5rem;
+  background: linear-gradient(#101922cc, #101922),
+    url("./background.jpg") no-repeat center/cover;
+  background-attachment: fixed;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 3rem;
+  width: 100%;
+  max-width: 90%;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.hero h2 {
+  font-size: clamp(1.6rem, 4vw, 2rem);
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--text-muted);
+  padding: 0 1rem;
+}
+
+/* ================================
+   🔍 SEARCH CONTAINER
+================================ */
+.search-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 1rem;
+  transition: var(--transition-fast);
+}
+
+.search-container:focus-within {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb, 59, 130, 246), 0.1);
+}
+
+.search-svg {
+  width: 2.5rem;
+  height: 2.5rem;
+  stroke: var(--border-strong);
+  flex-shrink: 0;
+  transition: var(--transition-fast);
+}
+
+.search-container:focus-within .search-svg {
+  stroke: var(--accent-color);
+}
+
+#search-input {
+  flex: 1;
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#search-input::placeholder {
+  color: var(--border-strong);
+}
+
+.search-btn {
+  padding: 1rem 2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+
+.search-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.search-btn:active {
+  transform: translateY(0);
+}
+
+/* ================================
+   💼 WHY DEVJOBS SECTION
+================================ */
+.why-devjobs {
+  padding: 5rem 1.5rem;
+  background-color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-devjobs header {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.why-devjobs header h1 {
+  font-size: clamp(3rem, 8vw, 4rem);
+  font-weight: 700;
+}
+
+.why-devjobs header p {
+  font-size: clamp(1.5rem, 3vw, 1.75rem);
+  line-height: 1.6;
+  color: var(--text-muted);
+  padding: 0 2rem;
+  max-width: 90%;
+}
+
+.why-cards-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  width: 100%;
+  padding: 0 1.5rem;
+  margin-top: 4rem;
+}
+
+.why-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 2.5rem;
+  gap: 2rem;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+  transition: var(--transition-smooth);
+}
+
+.why-card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-color);
+}
+
+.why-card__svg {
+  width: 6rem;
+  height: 6rem;
+  padding: 1.5rem;
+  stroke: var(--accent-color);
+  background-color: #1b3759;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+}
+
+.why-card:hover .why-card__svg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.why-card h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.why-card p {
+  font-size: 1.75rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ================================
+   ⚙️ FOOTER
+================================ */
+#footer {
+  padding: 3rem 1.5rem;
+  background-color: var(--primary-color);
+  border-top: 1px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#footer small {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* ================================
+   📱 TABLET (768px+)
+================================ */
+@media (min-width: 768px) {
+  #header {
+    padding: 1.5rem 3rem;
+  }
+
+  .logo-svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .logo-txt {
+    font-size: 3rem;
+  }
+
+  .toggle-burger,
+  .toggle-cross {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    visibility: visible;
+    background-color: transparent;
+  }
+
+  .menu ul {
+    flex-direction: row;
+    gap: 2.5rem;
+    padding: 0;
+  }
+
+  .menu ul li a {
+    font-size: 1.6rem;
+    font-weight: 500;
+  }
+
+  .menu-svg {
+    display: none;
+  }
+
+  .menu ul li:hover a {
+    transform: translateX(0);
+  }
+
+  .main-header {
+    padding: 10rem 3rem 6rem;
+  }
+
+  .hero {
+    gap: 4rem;
+    max-width: 85%;
+  }
+
+  .hero h1 {
+    font-size: 7rem;
+    line-height: 1.2;
+  }
+
+  .hero h2 {
+    font-size: 3rem;
+    padding: 0 5rem;
+  }
+
+  .search-container {
+    max-width: 80%;
+    padding: 1.5rem 2rem;
+  }
+
+  .search-svg {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  #search-input {
+    font-size: 2.5rem;
+  }
+
+  .search-btn {
+    font-size: 2rem;
+    padding: 1.25rem 2.5rem;
+  }
+
+  .why-devjobs {
+    padding: 6rem 3rem;
+  }
+
+  .why-devjobs header h1 {
+    font-size: 5rem;
+  }
+
+  .why-devjobs header p {
+    font-size: 2.5rem;
+    padding: 0 8rem;
+  }
+
+  .why-cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+    padding: 0 3rem;
+  }
+
+  #footer {
+    padding: 4rem 3rem;
+  }
+}
+
+/* ================================
+   💻 DESKTOP (1024px+)
+================================ */
+@media (min-width: 1024px) {
+  :root {
+    --header-height: 8rem;
+  }
+
+  #header {
+    padding: 2rem 5rem;
+  }
+
+  .logo-svg {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .logo-txt {
+    font-size: 3.5rem;
+  }
+
+  .action-btns {
+    gap: 1.5rem;
+  }
+
+  .post-job-btn,
+  .login-btn {
+    font-size: 1.8rem;
+    padding: 1rem 2rem;
+  }
+
+  .menu ul {
+    gap: 4rem;
+  }
+
+  .menu ul li a {
+    font-size: 1.8rem;
+  }
+
+  .main-header {
+    padding: 12rem 5rem 8rem;
+  }
+
+  .hero {
+    gap: 5rem;
+    max-width: 80%;
+  }
+
+  .hero h1 {
+    font-size: 9rem;
+    line-height: 1.2;
+  }
+
+  .hero h2 {
+    font-size: 3.5rem;
+    padding: 0 8rem;
+  }
+
+  .search-container {
+    max-width: 70%;
+    padding: 1.75rem 2.5rem;
+    border-radius: 1.25rem;
+  }
+
+  .search-svg {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  #search-input {
+    font-size: 2.75rem;
+  }
+
+  .search-btn {
+    font-size: 2.25rem;
+    padding: 1.5rem 3rem;
+  }
+
+  .why-devjobs {
+    padding: 8rem 5rem;
+    gap: 5rem;
+  }
+
+  .why-devjobs header {
+    gap: 2rem;
+  }
+
+  .why-devjobs header h1 {
+    font-size: 6rem;
+  }
+
+  .why-devjobs header p {
+    font-size: 3rem;
+    padding: 0 12rem;
+  }
+
+  .why-cards-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    padding: 0 5rem;
+  }
+
+  .why-card {
+    padding: 3.5rem 3rem;
+  }
+
+  #footer {
+    padding: 4rem 5rem;
+  }
+
+  #footer small {
+    font-size: 1.4rem;
+  }
+}
+
+/* ================================
+   🖥️ LARGE DESKTOP (1440px+)
+================================ */
+@media (min-width: 1440px) {
+  #header {
+    padding: 2rem 8rem;
+  }
+
+  .logo-svg {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  .logo-txt {
+    font-size: 4rem;
+  }
+
+  .action-btns {
+    gap: 2rem;
+  }
+
+  .post-job-btn,
+  .login-btn {
+    font-size: 2.2rem;
+    padding: 1.25rem 2.5rem;
+    border-radius: 1rem;
+  }
+
+  .menu ul {
+    gap: 6rem;
+  }
+
+  .menu ul li a {
+    font-size: 2rem;
+  }
+
+  .main-header {
+    padding: 15rem 8rem 10rem;
+  }
+
+  .hero {
+    gap: 6rem;
+    max-width: 75%;
+  }
+
+  .hero h1 {
+    font-size: 11rem;
+    line-height: 1.2;
+  }
+
+  .hero h2 {
+    font-size: 4rem;
+    padding: 0 12rem;
+  }
+
+  .search-container {
+    max-width: 60%;
+    padding: 2rem 3rem;
+    border-radius: 1.5rem;
+  }
+
+  .search-svg {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  #search-input {
+    font-size: 3rem;
+  }
+
+  .search-btn {
+    font-size: 2.5rem;
+    padding: 1.75rem 3.5rem;
+  }
+
+  .why-devjobs {
+    padding: 10rem 8rem;
+    gap: 6rem;
+  }
+
+  .why-devjobs header {
+    gap: 2.5rem;
+  }
+
+  .why-devjobs header h1 {
+    font-size: 7rem;
+  }
+
+  .why-devjobs header p {
+    font-size: 3.5rem;
+    padding: 0 15rem;
+  }
+
+  .why-cards-container {
+    gap: 5rem;
+    padding: 0 8rem;
+  }
+
+  .why-card {
+    padding: 4rem 3.5rem;
+    gap: 2.5rem;
+  }
+
+  .why-card__svg {
+    width: 8rem;
+    height: 8rem;
+    padding: 2rem;
+  }
+
+  .why-card h1 {
+    font-size: 3rem;
+  }
+
+  .why-card p {
+    font-size: 2.25rem;
+  }
+
+  #footer small {
+    font-size: 1.6rem;
+  }
+}
+
+/* ================================
+   🎯 ULTRA WIDE (1920px+)
+================================ */
+@media (min-width: 1920px) {
+  #header {
+    padding: 2.5rem 12rem;
+  }
+
+  .logo-svg {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .logo-txt {
+    font-size: 4.5rem;
+  }
+
+  .action-btns {
+    gap: 2.5rem;
+  }
+
+  .post-job-btn,
+  .login-btn {
+    font-size: 2.5rem;
+    padding: 1.5rem 3rem;
+    border-radius: 1.25rem;
+  }
+
+  .menu ul {
+    gap: 8rem;
+  }
+
+  .menu ul li a {
+    font-size: 2.5rem;
+  }
+
+  .main-header {
+    padding: 18rem 12rem 12rem;
+  }
+
+  .hero {
+    gap: 7rem;
+    max-width: 70%;
+  }
+
+  .hero h1 {
+    font-size: 13rem;
+    line-height: 1.2;
+  }
+
+  .hero h2 {
+    font-size: 4.5rem;
+    padding: 0 20rem;
+  }
+
+  .search-container {
+    max-width: 55%;
+    padding: 2.5rem 3.5rem;
+    border-radius: 1.75rem;
+  }
+
+  .search-svg {
+    width: 5rem;
+    height: 5rem;
+  }
+
+  #search-input {
+    font-size: 3.5rem;
+  }
+
+  .search-btn {
+    font-size: 3rem;
+    padding: 2rem 4rem;
+  }
+
+  .why-devjobs {
+    padding: 12rem 12rem;
+    gap: 7rem;
+  }
+
+  .why-devjobs header {
+    gap: 3rem;
+  }
+
+  .why-devjobs header h1 {
+    font-size: 8rem;
+  }
+
+  .why-devjobs header p {
+    font-size: 4rem;
+    padding: 0 20rem;
+  }
+
+  .why-cards-container {
+    gap: 6rem;
+    padding: 0 12rem;
+  }
+
+  .why-card {
+    padding: 4.5rem 4rem;
+    gap: 3rem;
+  }
+
+  .why-card__svg {
+    width: 10rem;
+    height: 10rem;
+    padding: 2.5rem;
+  }
+
+  .why-card h1 {
+    font-size: 3.5rem;
+  }
+
+  .why-card p {
+    font-size: 2.75rem;
+  }
+
+  #footer {
+    padding: 5rem 12rem;
+  }
+
+  #footer small {
+    font-size: 2rem;
+  }
+}

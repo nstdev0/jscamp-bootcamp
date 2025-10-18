@@ -1,1 +1,266 @@
-<!-- Aquí el contenido de tu página empleos.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./empleos.css" />
+    <title>Resultados de búsqueda - DevJobs</title>
+  </head>
+  <body>
+    <header id="header">
+      <div class="left-side-nav">
+        <div class="toggle-burger">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="menu-toggle-svg"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 6l16 0" />
+            <path d="M4 12l16 0" />
+            <path d="M4 18l16 0" />
+          </svg>
+        </div>
+        <div class="logo-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="logo-svg"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M12 12l8 -4.5" />
+            <path d="M12 12v9" />
+            <path d="M12 12l-8 -4.5" />
+            <path d="M12 12l8 4.5" />
+            <path d="M12 3v9" />
+            <path d="M12 12l-8 4.5" />
+          </svg>
+          <h1 class="logo-txt">DevJobs</h1>
+        </div>
+      </div>
+      <nav class="menu">
+        <div class="toggle-cross">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="#000000"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="menu-toggle-svg"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M18 6l-12 12" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="menu-svg"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+              </svg>
+              <a href="./index.html">Inicio</a>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="menu-svg"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
+                />
+                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+                <path d="M12 12l0 .01" />
+                <path d="M3 13a20 20 0 0 0 18 0" />
+              </svg>
+              <a href="#">Empleos</a>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="menu-svg"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 21h9" />
+                <path d="M9 8h1" />
+                <path d="M9 12h1" />
+                <path d="M9 16h1" />
+                <path d="M14 8h1" />
+                <path d="M14 12h1" />
+                <path
+                  d="M5 21v-16c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h10c.53 0 1.039 .211 1.414 .586c.375 .375 .586 .884 .586 1.414v7"
+                />
+                <path d="M16 19h6" />
+                <path d="M19 16v6" />
+              </svg>
+              <a href="#">Empresas</a>
+            </li>
+            <li>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#000000"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="menu-svg"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path
+                  d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"
+                />
+                <path d="M12 3v3m0 12v3" />
+              </svg>
+              <a href="#">Salarios</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <section class="action-btns">
+        <button class="btn upload-cv">Subir CV</button>
+        <div class="avatar-icon"></div>
+      </section>
+    </header>
+    <main>
+      <div class="main-container">
+        <div class="hero">
+          <h1>Encuentra tu próximo trabajo</h1>
+          <h2>Explora miles de oportunidades en el sector tecnológico.</h2>
+        </div>
+        <div class="search-filter-container">
+          <div class="search">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000000"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="search-svg"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+              <path d="M21 21l-6 -6" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Buscar trabajos, empresas, habilidades..."
+              id="search-input"
+              value=""
+            />
+          </div>
+          <div id="filters-container">
+            <!-- Select: Tecnología -->
+            <select name="tech" id="tech">
+              <option value="">Tecnología</option>
+              <option value="python">Python / FastAPI</option>
+              <option value="javascript">JavaScript / Node / React</option>
+              <option value="java">Java / Spring Boot</option>
+              <option value="php">PHP / Laravel</option>
+              <option value="flutter">Flutter / Dart</option>
+              <option value="angular">Angular / TypeScript</option>
+              <option value="devops">DevOps / Docker / Kubernetes</option>
+              <option value="data">Data / SQL / Power BI</option>
+              <option value="cloud">Cloud / AWS / Azure</option>
+              <option value="design">UI / UX / Figma</option>
+              <option value="security">Ciberseguridad / Redes</option>
+              <option value="ml">Machine Learning / IA</option>
+              <option value="unity">Videojuegos / Unity</option>
+            </select>
+
+            <!-- Select: Ubicación -->
+            <select name="locationFilter" id="location">
+              <option value="">Ubicación</option>
+              <option value="lima">Lima</option>
+              <option value="arequipa">Arequipa</option>
+              <option value="cusco">Cusco</option>
+              <option value="trujillo">Trujillo</option>
+              <option value="piura">Piura</option>
+              <option value="tacna">Tacna</option>
+              <option value="chiclayo">Chiclayo</option>
+            </select>
+
+            <!-- Select: Modalidad -->
+            <select name="mode" id="mode">
+              <option value="">Modalidad</option>
+              <option value="full-time">Tiempo completo</option>
+              <option value="part-time">Medio tiempo</option>
+              <option value="remote">Remoto</option>
+              <option value="hybrid">Híbrido</option>
+              <option value="on-site">Presencial</option>
+            </select>
+
+            <!-- Select: Experiencia -->
+            <select name="exp" id="exp">
+              <option value="">Experiencia</option>
+              <option value="junior">Junior</option>
+              <option value="mid">Semi-Senior / Mid</option>
+              <option value="senior">Senior</option>
+            </select>
+          </div>
+
+          <div id="job-cards-container">
+            <h2 id="results-count"></h2>
+          </div>
+        </div>
+        <div id="pagination-container" class="pagination"></div>
+      </div>
+    </main>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</html>
