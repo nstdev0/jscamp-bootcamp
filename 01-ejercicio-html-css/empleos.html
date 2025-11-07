@@ -1,208 +1,146 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./empleos.css" />
-    <title>Resultados de búsqueda - DevJobs</title>
-  </head>
-  <body>
-    <header id="header">
-      <div class="left-side-nav">
-        <div class="toggle-burger">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#000000"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="menu-toggle-svg"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M4 6l16 0" />
-            <path d="M4 12l16 0" />
-            <path d="M4 18l16 0" />
-          </svg>
-        </div>
-        <div class="logo-container">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#000000"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="logo-svg"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M12 12l8 -4.5" />
-            <path d="M12 12v9" />
-            <path d="M12 12l-8 -4.5" />
-            <path d="M12 12l8 4.5" />
-            <path d="M12 3v9" />
-            <path d="M12 12l-8 4.5" />
-          </svg>
-          <h1 class="logo-txt">DevJobs</h1>
-        </div>
+<!-- Si el contenido de la página está principalmente en español, entonces se debe usar "es" -->
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./empleos.css" />
+  <title>Resultados de búsqueda - DevJobs</title>
+  <!-- Podemos agregar un description para mejorar el SEO -->
+  <meta name="description" content="Resultados de búsqueda de empleos" />
+</head>
+
+<body>
+  <header id="header">
+    <div class="left-side-nav">
+      <!-- por más que no tenga funcionalidad, de momento, dejaremos esto como un botón. Es un elemento clickeable que cumple con una función en concreto (tiene una acción).
+        Además, al ponerlo con la etiqueta correcta, el navegador le da una serie de características adicionales que funcionan a nivel de, usabilidad, semántica y accesibilidad. Un ejemplo sería que, podemos navegar con `tabs` por el sitio y el botón se marcaría como elemento clickeable
+
+        Otra cosa a destacar:
+        Cuando tenemos un botón o link que cumple una acción, y esta es descrita por el SVG, lo mejor es agregar los atributos `aria-label` y `title`, para mejorar la accesibilidad.
+        aria-label le va a indicar a los lectores de pantalla qué hace ese botón, le dará contexto.
+        title le va a indicar a los usuarios que hacen hover sobre el botón, qué hace el botón.
+
+        Más detalle: Los lectores de pantalla son herramientas que, como lo dice la palabra, leen el contenido de la página web, esto lo hacen para por ejemplo, personas no videntes. Y a partir del texto y las etiquetas HTML que lo envuelven, pueden interpretar el contenido.
+        -->
+      <button class="toggle-burger" aria-label="Abrir menú" title="Abrir menú">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          aria-hidden="true" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="menu-toggle-svg">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M4 6l16 0" />
+          <path d="M4 12l16 0" />
+          <path d="M4 18l16 0" />
+        </svg>
+      </button>
+      <div class="logo-container">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
+          fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-svg">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M12 12l8 -4.5" />
+          <path d="M12 12v9" />
+          <path d="M12 12l-8 -4.5" />
+          <path d="M12 12l8 4.5" />
+          <path d="M12 3v9" />
+          <path d="M12 12l-8 4.5" />
+        </svg>
+        <h1 class="logo-txt">DevJobs</h1>
       </div>
-      <nav class="menu">
-        <div class="toggle-cross">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="#000000"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="menu-toggle-svg"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <path d="M18 6l-12 12" />
-            <path d="M6 6l12 12" />
-          </svg>
-        </div>
-        <div>
-          <ul>
-            <li>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="menu-svg"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-                <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-                <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-              </svg>
-              <a href="./index.html">Inicio</a>
-            </li>
-            <li>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="menu-svg"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z"
-                />
-                <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
-                <path d="M12 12l0 .01" />
-                <path d="M3 13a20 20 0 0 0 18 0" />
-              </svg>
-              <a href="#">Empleos</a>
-            </li>
-            <li>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="menu-svg"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path d="M3 21h9" />
-                <path d="M9 8h1" />
-                <path d="M9 12h1" />
-                <path d="M9 16h1" />
-                <path d="M14 8h1" />
-                <path d="M14 12h1" />
-                <path
-                  d="M5 21v-16c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h10c.53 0 1.039 .211 1.414 .586c.375 .375 .586 .884 .586 1.414v7"
-                />
-                <path d="M16 19h6" />
-                <path d="M19 16v6" />
-              </svg>
-              <a href="#">Empresas</a>
-            </li>
-            <li>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#000000"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="menu-svg"
-              >
-                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                <path
-                  d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2"
-                />
-                <path d="M12 3v3m0 12v3" />
-              </svg>
-              <a href="#">Salarios</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-      <section class="action-btns">
-        <button class="btn upload-cv">Subir CV</button>
-        <div class="avatar-icon"></div>
-      </section>
-    </header>
-    <main>
-      <div class="main-container">
+    </div>
+    <nav class="menu">
+      <div class="toggle-cross">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
+          fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+          class="menu-toggle-svg">
+          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+          <path d="M18 6l-12 12" />
+          <path d="M6 6l12 12" />
+        </svg>
+      </div>
+      <div>
+        <ul>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="menu-svg">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+              <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+              <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+            </svg>
+            <a href="./index.html">Inicio</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" aria-hidden="true" viewBox="0 0 24 24"
+              fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="menu-svg">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 7m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" />
+              <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2" />
+              <path d="M12 12l0 .01" />
+              <path d="M3 13a20 20 0 0 0 18 0" />
+            </svg>
+            <a href="#">Empleos</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              aria-hidden="true" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="menu-svg">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M3 21h9" />
+              <path d="M9 8h1" />
+              <path d="M9 12h1" />
+              <path d="M9 16h1" />
+              <path d="M14 8h1" />
+              <path d="M14 12h1" />
+              <path
+                d="M5 21v-16c0 -.53 .211 -1.039 .586 -1.414c.375 -.375 .884 -.586 1.414 -.586h10c.53 0 1.039 .211 1.414 .586c.375 .375 .586 .884 .586 1.414v7" />
+              <path d="M16 19h6" />
+              <path d="M19 16v6" />
+            </svg>
+            <a href="#">Empresas</a>
+          </li>
+          <li>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              aria-hidden="true" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="menu-svg">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M16.7 8a3 3 0 0 0 -2.7 -2h-4a3 3 0 0 0 0 6h4a3 3 0 0 1 0 6h-4a3 3 0 0 1 -2.7 -2" />
+              <path d="M12 3v3m0 12v3" />
+            </svg>
+            <a href="#">Salarios</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- No es una sección como tal, sino que es un contenido que sigue formando parte del header, un bloque divisorio. Un section por lo general, tiene su propio encabezado (h1, h2, etc) y contenido más extenso y dividido en su interior -->
+    <div class="action-btns">
+      <button class="btn upload-cv">Subir CV</button>
+      <!-- Las imágenes que se colocan como background-image por CSS se suelen usar cuando la imagen no tiene ninguna importancia en la web. Por ejemplo, el background del hero en `/index.html` (si no existe, no hay problema, todo tiene sentido igual). En cambio, el avatar del usuario si que tiene importancia en nuestra web, por eso, lo colocamos como una imagen de HTML -->
+      <img src="./avatar-icon.png" alt="Avatar del usuario" class="avatar-icon">
+    </div>
+  </header>
+  <main>
+    <div class="main-container">
+      <!-- separamos el contenido principal de la página en dos secciones: el buscador de resultados, y los resultados en sí -->
+      <section>
         <div class="hero">
           <h1>Encuentra tu próximo trabajo</h1>
-          <h2>Explora miles de oportunidades en el sector tecnológico.</h2>
+          <!-- Más que un titulo, es un texto que acompaña al titulo principal. Le da mas contexto, por lo que lo podemos cambiar a un p -->
+          <p>Explora miles de oportunidades en el sector tecnológico.</p>
         </div>
-        <div class="search-filter-container">
-          <div class="search">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#000000"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="search-svg"
-            >
+        <!-- si esto tiene inputs y filtros de formulario, tiene sentido que sea un FORM -->
+        <form class="search-filter-container">
+          <!-- Agregamos el role search para que los lectores de pantalla lo identifiquen como un buscador -->
+          <div class="search" role="search">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-svg">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
             </svg>
-            <input
-              type="text"
-              placeholder="Buscar trabajos, empresas, habilidades..."
-              id="search-input"
-              value=""
-            />
+            <input type="text" placeholder="Buscar trabajos, empresas, habilidades..." id="search-input" value="" />
           </div>
           <div id="filters-container">
             <!-- Select: Tecnología -->
@@ -253,14 +191,19 @@
               <option value="senior">Senior</option>
             </select>
           </div>
+      </section>
 
-          <div id="job-cards-container">
-            <h2 id="results-count"></h2>
-          </div>
-        </div>
-        <div id="pagination-container" class="pagination"></div>
-      </div>
-    </main>
-  </body>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+      <section id="job-cards-container">
+        <!-- TODO: Aquí falta el resto del contenido, queda como tarea hacer las cards para avanzar :)
+        PD: lo estas haciendo genial! Hubieron algunos detalles pero todo está muy bien estructurado -->
+        <h2 id="results-count"></h2>
+      </section>
+    </div>
+    <!-- TODO: Aquí falta también la paginación :) Recuerda que puede ser un nav -->
+    <div id="pagination-container" class="pagination"></div>
+    </div>
+  </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
 </html>
