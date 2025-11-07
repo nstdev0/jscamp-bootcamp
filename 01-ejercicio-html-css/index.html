@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./index.css" />
     <title>DevJobs - Inicio</title>
+    <meta name="description" content="Encuentra el trabajo de tus sueños en la comunidad más grande de desarrolladores" />
   </head>
   <body>
     <header id="header">
       <div class="left-side-nav">
-        <div class="toggle-burger">
+        <button class="toggle-burger" aria-label="Abrir menú" aria-expanded="false">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -21,14 +22,15 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             class="menu-toggle-svg"
+            aria-hidden="true"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M4 6l16 0" />
             <path d="M4 12l16 0" />
             <path d="M4 18l16 0" />
           </svg>
-        </div>
-        <div class="logo-container">
+        </button>
+        <a href="./index.html" class="logo-container">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -40,6 +42,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             class="logo-svg"
+            aria-hidden="true"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M12 12l8 -4.5" />
@@ -49,11 +52,11 @@
             <path d="M12 3v9" />
             <path d="M12 12l-8 4.5" />
           </svg>
-          <h1 class="logo-txt">DevJobs</h1>
-        </div>
+          <span class="logo-txt">DevJobs</span>
+        </a>
       </div>
-      <nav class="menu">
-        <div class="toggle-cross">
+      <nav class="menu" aria-label="Navegación principal">
+        <button class="toggle-cross" aria-label="Cerrar menú">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -65,12 +68,13 @@
             stroke-linecap="round"
             stroke-linejoin="round"
             class="menu-toggle-svg"
+            aria-hidden="true"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M18 6l-12 12" />
             <path d="M6 6l12 12" />
           </svg>
-        </div>
+        </button>
         <div>
           <ul>
             <li>
@@ -85,6 +89,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="menu-svg"
+                aria-hidden="true"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
@@ -104,6 +109,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="menu-svg"
+                aria-hidden="true"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path
@@ -127,6 +133,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="menu-svg"
+                aria-hidden="true"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M3 21h9" />
@@ -155,6 +162,7 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="menu-svg"
+                aria-hidden="true"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path
@@ -167,21 +175,21 @@
           </ul>
         </div>
       </nav>
-      <section class="action-btns">
+      <div class="action-btns">
         <button class="btn post-job-btn">Publicar un empleo</button>
         <button class="btn login-btn">Iniciar sesión</button>
-      </section>
+      </div>
     </header>
     <main>
       <div class="main-container">
-        <header class="main-header">
+        <section class="main-header">
           <div class="hero">
             <h1>Encuentra el trabajo de tus sueños</h1>
-            <h2>
+            <p>
               Únete a la comunidad más grande de desarrolladores y encuentra tu
               próxima oportunidad.
-            </h2>
-            <div class="search-container">
+            </p>
+            <form class="search-container" role="search" action="/buscar" method="get">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -193,31 +201,34 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 class="search-svg"
+                aria-hidden="true"
               >
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
                 <path d="M21 21l-6 -6" />
               </svg>
+              <label for="search-input" class="sr-only">Buscar empleos</label>
               <input
-                type="text"
+                type="search"
                 id="search-input"
+                name="q"
                 placeholder="Buscar empleos por título, habilidad o empresa..."
               />
-              <button class="btn search-btn">Buscar</button>
-            </div>
+              <button type="submit" class="btn search-btn">Buscar</button>
+            </form>
           </div>
-        </header>
-        <section class="why-devjobs">
+        </section>
+        <section class="why-devjobs" aria-labelledby="why-devjobs-heading">
           <div>
             <header>
-              <h1>¿Por qué DevJobs?</h1>
+              <h2 id="why-devjobs-heading">¿Por qué DevJobs?</h2>
               <p>
                 DevJobs es la principal bolsa de trabajo para desarrolladores.
                 Conectamos a los desarrolladores con las mejores empresas del
                 mundo.
               </p>
             </header>
-            <main class="why-cards-container">
+            <div class="why-cards-container">
               <article class="why-card">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -230,6 +241,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="why-card__svg"
+                  aria-hidden="true"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path
@@ -239,7 +251,7 @@
                   <path d="M12 12l0 .01" />
                   <path d="M3 13a20 20 0 0 0 18 0" />
                 </svg>
-                <h1>Encuentra el trabajo de tus sueños</h1>
+                <h3>Encuentra el trabajo de tus sueños</h3>
                 <p>
                   Busca miles de empleos de las mejores empresas de todo el
                   mundo.
@@ -257,6 +269,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="why-card__svg"
+                  aria-hidden="true"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M5 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
@@ -266,7 +279,7 @@
                   <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                   <path d="M16 19h6" />
                 </svg>
-                <h1>Conecta con las mejores empresas</h1>
+                <h3>Conecta con las mejores empresas</h3>
                 <p>
                   Conecta con empresas que están contratando por tus
                   habilidades.
@@ -284,6 +297,7 @@
                   stroke-linecap="round"
                   stroke-linejoin="round"
                   class="why-card__svg"
+                  aria-hidden="true"
                 >
                   <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                   <path d="M3 21h9" />
@@ -297,13 +311,13 @@
                   />
                   <path d="M16 19h6" />
                 </svg>
-                <h1>Obtén el salario que mereces</h1>
+                <h3>Obtén el salario que mereces</h3>
                 <p>
                   Obtén el salario que mereces con nuestra calculadora de
                   salarios.
                 </p>
               </article>
-            </main>
+            </div>
           </div>
         </section>
       </div>

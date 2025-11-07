@@ -24,7 +24,7 @@
 
         Más detalle: Los lectores de pantalla son herramientas que, como lo dice la palabra, leen el contenido de la página web, esto lo hacen para por ejemplo, personas no videntes. Y a partir del texto y las etiquetas HTML que lo envuelven, pueden interpretar el contenido.
         -->
-      <button class="toggle-burger" aria-label="Abrir menú" title="Abrir menú">
+      <button class="toggle-burger" aria-label="Abrir menú" title="Abrir menú" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           aria-hidden="true" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
           class="menu-toggle-svg">
@@ -34,7 +34,7 @@
           <path d="M4 18l16 0" />
         </svg>
       </button>
-      <div class="logo-container">
+      <a href="./index.html" class="logo-container">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
           fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="logo-svg">
           <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -45,11 +45,11 @@
           <path d="M12 3v9" />
           <path d="M12 12l-8 4.5" />
         </svg>
-        <h1 class="logo-txt">DevJobs</h1>
-      </div>
+        <span class="logo-txt">DevJobs</span>
+      </a>
     </div>
-    <nav class="menu">
-      <div class="toggle-cross">
+    <nav class="menu" aria-label="Navegación principal">
+      <button class="toggle-cross" aria-label="Cerrar menú">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"
           fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
           class="menu-toggle-svg">
@@ -57,7 +57,7 @@
           <path d="M18 6l-12 12" />
           <path d="M6 6l12 12" />
         </svg>
-      </div>
+      </button>
       <div>
         <ul>
           <li>
@@ -123,27 +123,24 @@
   </header>
   <main>
     <div class="main-container">
-      <!-- separamos el contenido principal de la página en dos secciones: el buscador de resultados, y los resultados en sí -->
-      <section>
+      <section aria-labelledby="search-heading">
         <div class="hero">
-          <h1>Encuentra tu próximo trabajo</h1>
-          <!-- Más que un titulo, es un texto que acompaña al titulo principal. Le da mas contexto, por lo que lo podemos cambiar a un p -->
+          <h1 id="search-heading">Encuentra tu próximo trabajo</h1>
           <p>Explora miles de oportunidades en el sector tecnológico.</p>
         </div>
-        <!-- si esto tiene inputs y filtros de formulario, tiene sentido que sea un FORM -->
-        <form class="search-filter-container">
-          <!-- Agregamos el role search para que los lectores de pantalla lo identifiquen como un buscador -->
-          <div class="search" role="search">
+        <form class="search-filter-container" role="search" action="/buscar" method="get">
+          <div class="search">
             <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
               stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-svg">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
             </svg>
-            <input type="text" placeholder="Buscar trabajos, empresas, habilidades..." id="search-input" value="" />
+            <label for="search-input" class="sr-only">Buscar trabajos</label>
+            <input type="search" name="q" placeholder="Buscar trabajos, empresas, habilidades..." id="search-input" />
           </div>
           <div id="filters-container">
-            <!-- Select: Tecnología -->
+            <label for="tech" class="sr-only">Filtrar por tecnología</label>
             <select name="tech" id="tech">
               <option value="">Tecnología</option>
               <option value="python">Python / FastAPI</option>
@@ -161,7 +158,7 @@
               <option value="unity">Videojuegos / Unity</option>
             </select>
 
-            <!-- Select: Ubicación -->
+            <label for="location" class="sr-only">Filtrar por ubicación</label>
             <select name="locationFilter" id="location">
               <option value="">Ubicación</option>
               <option value="lima">Lima</option>
@@ -173,7 +170,7 @@
               <option value="chiclayo">Chiclayo</option>
             </select>
 
-            <!-- Select: Modalidad -->
+            <label for="mode" class="sr-only">Filtrar por modalidad</label>
             <select name="mode" id="mode">
               <option value="">Modalidad</option>
               <option value="full-time">Tiempo completo</option>
@@ -183,7 +180,7 @@
               <option value="on-site">Presencial</option>
             </select>
 
-            <!-- Select: Experiencia -->
+            <label for="exp" class="sr-only">Filtrar por experiencia</label>
             <select name="exp" id="exp">
               <option value="">Experiencia</option>
               <option value="junior">Junior</option>
@@ -191,16 +188,76 @@
               <option value="senior">Senior</option>
             </select>
           </div>
+        </form>
       </section>
 
-      <section id="job-cards-container">
-        <!-- TODO: Aquí falta el resto del contenido, queda como tarea hacer las cards para avanzar :)
-        PD: lo estas haciendo genial! Hubieron algunos detalles pero todo está muy bien estructurado -->
-        <h2 id="results-count"></h2>
+      <section id="job-cards-container" aria-labelledby="results-count">
+        <h2 id="results-count">Resultados de búsqueda</h2>
+
+        <article class="job-card">
+          <div class="job-card-content">
+            <h3 class="job-title">Ingeniero de Software</h3>
+            <p class="job-company">Tech Solutions Inc. | Remoto</p>
+            <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.</p>
+          </div>
+          <button class="btn apply-btn">Aplicar</button>
+        </article>
+
+        <article class="job-card">
+          <div class="job-card-content">
+            <h3 class="job-title">Analista de Datos</h3>
+            <p class="job-company">Data Driven Co. | Ciudad de México</p>
+            <p class="job-description">Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y herramientas de visualización. Se requiere conocimiento en SQL, Python y R.</p>
+          </div>
+          <button class="btn apply-btn">Aplicar</button>
+        </article>
+
+        <article class="job-card">
+          <div class="job-card-content">
+            <h3 class="job-title">Desarrollador de Aplicaciones Móviles</h3>
+            <p class="job-company">Mobile Apps Ltd. | Guadalajara</p>
+            <p class="job-description">Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
+          </div>
+          <button class="btn apply-btn">Aplicar</button>
+        </article>
+
+        <article class="job-card">
+          <div class="job-card-content">
+            <h3 class="job-title">Ingeniero de DevOps</h3>
+            <p class="job-company">Cloud Services SA | Remoto</p>
+            <p class="job-description">Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en la nube, automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.</p>
+          </div>
+          <button class="btn apply-btn">Aplicar</button>
+        </article>
+
+        <article class="job-card">
+          <div class="job-card-content">
+            <h3 class="job-title">Diseñador UI/UX</h3>
+            <p class="job-company">Creative Design Studio | Monterrey</p>
+            <p class="job-description">Buscamos un diseñador UI/UX con experiencia en diseño de interfaces de usuario y experiencia de usuario. El candidato debe tener conocimientos en Figma, Adobe XD y prototipado.</p>
+          </div>
+          <button class="btn apply-btn">Aplicar</button>
+        </article>
+
+        <article class="job-card">
+          <div class="job-card-content">
+            <h3 class="job-title">Desarrollador Full Stack</h3>
+            <p class="job-company">Startup Innovadora | Remoto</p>
+            <p class="job-description">Buscamos un desarrollador full stack con experiencia en tecnologías frontend y backend. El candidato debe tener conocimientos en React, Node.js, MongoDB y AWS.</p>
+          </div>
+          <button class="btn apply-btn">Aplicar</button>
+        </article>
       </section>
-    </div>
-    <!-- TODO: Aquí falta también la paginación :) Recuerda que puede ser un nav -->
-    <div id="pagination-container" class="pagination"></div>
+
+      <nav id="pagination-container" class="pagination" aria-label="Paginación de resultados">
+        <button type="button" class="pagination-btn" aria-label="Página anterior" disabled>&lsaquo;</button>
+        <button type="button" class="pagination-btn active" aria-label="Página 1" aria-current="page">1</button>
+        <button type="button" class="pagination-btn" aria-label="Página 2">2</button>
+        <button type="button" class="pagination-btn" aria-label="Página 3">3</button>
+        <button type="button" class="pagination-btn" aria-label="Página 4">4</button>
+        <button type="button" class="pagination-btn" aria-label="Página 5">5</button>
+        <button type="button" class="pagination-btn" aria-label="Página siguiente">&rsaquo;</button>
+      </nav>
     </div>
   </main>
 </body>

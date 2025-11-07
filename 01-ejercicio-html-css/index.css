@@ -4,17 +4,17 @@
    🎨 VARIABLES ADICIONALES
 ================================ */
 :root {
-  --header-bg: #101922b3;
-  --card-bg: #1e293b;
-  --card-bg-alt: #242d3a;
-  --border-light: #ffffff1a;
-  --border-medium: #ffffff60;
-  --border-strong: #ffffff77;
-  --text-muted: #ffffffb3;
-  --text-secondary: #94a3b8;
-  --button-primary-bg: #0f2b45;
-  --button-primary-color: #1173d4;
-  --button-secondary-bg: #334155;
+  --header-bg: rgba(15, 20, 25, 0.95);
+  --card-bg: #1e2a38;
+  --card-bg-alt: #243447;
+  --border-light: rgba(45, 61, 82, 0.3);
+  --border-medium: rgba(45, 61, 82, 0.6);
+  --border-strong: #2d3d52;
+  --text-muted: #b4bcc8;
+  --text-secondary: #7b8a9a;
+  --button-primary-bg: #1173d4;
+  --button-primary-color: #ffffff;
+  --button-secondary-bg: #4a5568;
   --header-height: 7rem;
   --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-fast: all 0.2s ease;
@@ -57,6 +57,8 @@ body.active {
   display: flex;
   align-items: center;
   gap: 0.7rem;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .logo-svg {
@@ -95,12 +97,13 @@ body.active {
 .post-job-btn {
   color: var(--button-primary-color);
   background-color: var(--button-primary-bg);
+  border: none;
 }
 
 .post-job-btn:hover {
-  background-color: #143a5a;
+  background-color: #1e7ab8;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(45, 156, 219, 0.3);
 }
 
 .post-job-btn:active {
@@ -110,12 +113,13 @@ body.active {
 .login-btn {
   color: #fff;
   background-color: var(--button-secondary-bg);
+  border: none;
 }
 
 .login-btn:hover {
-  background-color: #475569;
+  background-color: #5a6577;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .login-btn:active {
@@ -258,7 +262,7 @@ body.active {
   align-items: center;
   min-height: 100vh;
   padding: 8rem 1.5rem 5rem;
-  background: linear-gradient(#101922cc, #101922),
+  background: linear-gradient(rgba(15, 20, 25, 0.85), rgba(15, 20, 25, 0.95)),
     url("./background.jpg") no-repeat center/cover;
   background-attachment: fixed;
 }
@@ -281,7 +285,7 @@ body.active {
   letter-spacing: -0.02em;
 }
 
-.hero h2 {
+.hero p {
   font-size: clamp(1.6rem, 4vw, 2rem);
   font-weight: 300;
   line-height: 1.5;
@@ -344,12 +348,16 @@ body.active {
   font-weight: 600;
   border-radius: 0.75rem;
   white-space: nowrap;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-color);
+  border: none;
   transition: var(--transition-fast);
 }
 
 .search-btn:hover {
+  background-color: #1e7ab8;
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 16px rgba(45, 156, 219, 0.3);
 }
 
 .search-btn:active {
@@ -377,7 +385,7 @@ body.active {
   text-align: center;
 }
 
-.why-devjobs header h1 {
+.why-devjobs header h2 {
   font-size: clamp(3rem, 8vw, 4rem);
   font-weight: 700;
 }
@@ -408,15 +416,16 @@ body.active {
   padding: 3rem 2.5rem;
   gap: 2rem;
   background-color: var(--card-bg);
-  border: 1px solid var(--border-light);
-  border-radius: 1.5rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 1.2rem;
   transition: var(--transition-smooth);
 }
 
 .why-card:hover {
   transform: translateY(-0.5rem);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
   border-color: var(--accent-color);
+  background-color: var(--card-bg-alt);
 }
 
 .why-card__svg {
@@ -424,16 +433,17 @@ body.active {
   height: 6rem;
   padding: 1.5rem;
   stroke: var(--accent-color);
-  background-color: #1b3759;
+  background-color: rgba(45, 156, 219, 0.15);
   border-radius: 50%;
   transition: var(--transition-fast);
 }
 
 .why-card:hover .why-card__svg {
   transform: scale(1.1) rotate(5deg);
+  background-color: rgba(45, 156, 219, 0.25);
 }
 
-.why-card h1 {
+.why-card h3 {
   font-size: 2.5rem;
   font-weight: 700;
 }
@@ -526,7 +536,7 @@ body.active {
     line-height: 1.2;
   }
 
-  .hero h2 {
+  .hero p {
     font-size: 3rem;
     padding: 0 5rem;
   }
@@ -554,7 +564,7 @@ body.active {
     padding: 6rem 3rem;
   }
 
-  .why-devjobs header h1 {
+  .why-devjobs header h2 {
     font-size: 5rem;
   }
 
@@ -661,7 +671,7 @@ body.active {
     gap: 2rem;
   }
 
-  .why-devjobs header h1 {
+  .why-devjobs header h2 {
     font-size: 6rem;
   }
 
@@ -798,7 +808,7 @@ body.active {
     padding: 2rem;
   }
 
-  .why-card h1 {
+  .why-card h3 {
     font-size: 3rem;
   }
 
@@ -895,7 +905,7 @@ body.active {
     gap: 3rem;
   }
 
-  .why-devjobs header h1 {
+  .why-devjobs header h2 {
     font-size: 8rem;
   }
 
@@ -920,7 +930,7 @@ body.active {
     padding: 2.5rem;
   }
 
-  .why-card h1 {
+  .why-card h3 {
     font-size: 3.5rem;
   }
 

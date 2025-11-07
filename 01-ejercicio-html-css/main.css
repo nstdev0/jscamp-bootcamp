@@ -11,7 +11,17 @@
 
 :root {
   --primary-color: #101922;
-  --accent-color: #1173d4;
+  --secondary-color: #1a2332;
+  --accent-color: #2d9cdb;
+  --accent-hover: #1e7ab8;
+  --card-bg: #1e2a38;
+  --card-hover: #243447;
+  --text-primary: #ffffff;
+  --text-secondary: #b4bcc8;
+  --text-muted: #7b8a9a;
+  --border-color: #2d3d52;
+  --button-primary: #2d9cdb;
+  --button-secondary: #4a5568;
 }
 
 .btn {
@@ -21,6 +31,7 @@
   font-weight: 700;
   border-radius: 0.75rem;
   border: none;
+  cursor: pointer;
 
   &:hover,
   &:active {
@@ -30,4 +41,16 @@
   &:active {
     transform: scale(0.95);
   }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
