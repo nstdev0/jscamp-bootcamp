@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { type Job } from "../types/job";
+import JobCard from "./JobCard";
 
 export default function SearchResultsSection() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -34,25 +35,7 @@ export default function SearchResultsSection() {
         <h2 style={{ textAlign: "center" }}>Resultados de búsqueda</h2>{" "}
         <div className="jobs-listings">
           {jobs.map((job, index) => {
-            return (
-              <article
-                className="job-listing-card"
-                id={job.id}
-                data-modalidad={job.data.modalidad}
-                data-nivel={job.data.nivel}
-                data-technology={job.data.technology}
-                key={index}
-              >
-                <div>
-                  <h3>{job.titulo}</h3>
-                  <small>
-                    {job.empresa} | {job.data.modalidad}
-                  </small>
-                  <p>{job.descripcion}</p>
-                </div>
-                <button className="button-apply-job">Aplicar</button>
-              </article>
-            );
+            return <JobCard key={index} job={job} />;
           })}{" "}
         </div>
         <nav className="pagination">
