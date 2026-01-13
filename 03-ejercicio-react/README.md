@@ -22,10 +22,10 @@ La página deberá verse así:
 
 ```jsx
 /* Puedes elegir el nombre que quieras en los componentes */
-import { Header } from './components/Header'
-import { SearchFormSection } from './components/SearchFormSection'
-import { SearchResultsSection } from './components/SearchResultsSection'
-import { Footer } from './components/Footer'
+import { Header } from "./components/Header";
+import { SearchFormSection } from "./components/SearchFormSection";
+import { SearchResultsSection } from "./components/SearchResultsSection";
+import { Footer } from "./components/Footer";
 
 function App() {
   return (
@@ -37,7 +37,7 @@ function App() {
       </main>
       <Footer />
     </>
-  )
+  );
 }
 ```
 
@@ -61,10 +61,13 @@ Si vemos nuestro `SearchResultsSection`, seguramente haya quedado algo así:
 
 ```jsx
 <section>
-  <h2 style={{ textAlign: 'center' }}>Resultados de búsqueda</h2>
+  <h2 style={{ textAlign: "center" }}>Resultados de búsqueda</h2>
   <div className="jobs-listings">
     {jobs.length === 0 && (
-      <p>No se han encontrado empleos que coincidan con los criterios de búsqueda.</p>
+      <p>
+        No se han encontrado empleos que coincidan con los criterios de
+        búsqueda.
+      </p>
     )}
 
     {jobs.map((job) => (
@@ -105,14 +108,17 @@ export function JobListings({ jobs }) {
   return (
     <div className="jobs-listings">
       {jobs.length === 0 && (
-        <p>No se han encontrado empleos que coincidan con los criterios de búsqueda.</p>
+        <p>
+          No se han encontrado empleos que coincidan con los criterios de
+          búsqueda.
+        </p>
       )}
 
       {jobs.map((job) => (
         <JobCard key={job.id} job={job} />
       ))}
     </div>
-  )
+  );
 }
 ```
 
