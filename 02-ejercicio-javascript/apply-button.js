@@ -1,3 +1,5 @@
+// Excelente! Muy bien aplicado :)
+
 /* Aquí va la lógica para dar funcionalidad al botón de "Aplicar" */
 const jobsListingCard = document.querySelector(".jobs-listings");
 
