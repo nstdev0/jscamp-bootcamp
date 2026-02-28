@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- Si el contenido de la página está principalmente en español, entonces se debe usar "es" -->
 <html lang="es">
 
 <head>
@@ -7,23 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./empleos.css" />
   <title>Resultados de búsqueda - DevJobs</title>
-  <!-- Podemos agregar un description para mejorar el SEO -->
   <meta name="description" content="Resultados de búsqueda de empleos" />
 </head>
 
 <body>
   <header id="header">
     <div class="left-side-nav">
-      <!-- por más que no tenga funcionalidad, de momento, dejaremos esto como un botón. Es un elemento clickeable que cumple con una función en concreto (tiene una acción).
-        Además, al ponerlo con la etiqueta correcta, el navegador le da una serie de características adicionales que funcionan a nivel de, usabilidad, semántica y accesibilidad. Un ejemplo sería que, podemos navegar con `tabs` por el sitio y el botón se marcaría como elemento clickeable
-
-        Otra cosa a destacar:
-        Cuando tenemos un botón o link que cumple una acción, y esta es descrita por el SVG, lo mejor es agregar los atributos `aria-label` y `title`, para mejorar la accesibilidad.
-        aria-label le va a indicar a los lectores de pantalla qué hace ese botón, le dará contexto.
-        title le va a indicar a los usuarios que hacen hover sobre el botón, qué hace el botón.
-
-        Más detalle: Los lectores de pantalla son herramientas que, como lo dice la palabra, leen el contenido de la página web, esto lo hacen para por ejemplo, personas no videntes. Y a partir del texto y las etiquetas HTML que lo envuelven, pueden interpretar el contenido.
-        -->
       <button class="toggle-burger" aria-label="Abrir menú" title="Abrir menú" aria-expanded="false">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           aria-hidden="true" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -114,10 +102,8 @@
         </ul>
       </div>
     </nav>
-    <!-- No es una sección como tal, sino que es un contenido que sigue formando parte del header, un bloque divisorio. Un section por lo general, tiene su propio encabezado (h1, h2, etc) y contenido más extenso y dividido en su interior -->
     <div class="action-btns">
       <button class="btn upload-cv">Subir CV</button>
-      <!-- Las imágenes que se colocan como background-image por CSS se suelen usar cuando la imagen no tiene ninguna importancia en la web. Por ejemplo, el background del hero en `/index.html` (si no existe, no hay problema, todo tiene sentido igual). En cambio, el avatar del usuario si que tiene importancia en nuestra web, por eso, lo colocamos como una imagen de HTML -->
       <img src="./avatar-icon.png" alt="Avatar del usuario" class="avatar-icon">
     </div>
   </header>
@@ -130,8 +116,9 @@
         </div>
         <form class="search-filter-container" role="search" action="/buscar" method="get">
           <div class="search">
-            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-              stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="search-svg">
+            <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+              fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              class="search-svg">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
@@ -198,7 +185,9 @@
           <div class="job-card-content">
             <h3 class="job-title">Ingeniero de Software</h3>
             <p class="job-company">Tech Solutions Inc. | Remoto</p>
-            <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web y conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y tener buenas habilidades de comunicación.</p>
+            <p class="job-description">Buscamos un ingeniero de software con experiencia en desarrollo web y
+              conocimientos en JavaScript, React y Node.js. El candidato ideal debe ser capaz de trabajar en equipo y
+              tener buenas habilidades de comunicación.</p>
           </div>
           <button class="btn apply-btn">Aplicar</button>
         </article>
@@ -207,7 +196,8 @@
           <div class="job-card-content">
             <h3 class="job-title">Analista de Datos</h3>
             <p class="job-company">Data Driven Co. | Ciudad de México</p>
-            <p class="job-description">Estamos buscando un analista de datos con experiencia en el manejo de grandes conjuntos de datos y herramientas de visualización. Se requiere conocimiento en SQL, Python y R.</p>
+            <p class="job-description">Estamos buscando un analista de datos con experiencia en el manejo de grandes
+              conjuntos de datos y herramientas de visualización. Se requiere conocimiento en SQL, Python y R.</p>
           </div>
           <button class="btn apply-btn">Aplicar</button>
         </article>
@@ -216,7 +206,9 @@
           <div class="job-card-content">
             <h3 class="job-title">Desarrollador de Aplicaciones Móviles</h3>
             <p class="job-company">Mobile Apps Ltd. | Guadalajara</p>
-            <p class="job-description">Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o Android. El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.</p>
+            <p class="job-description">Buscamos un desarrollador de aplicaciones móviles con experiencia en iOS y/o
+              Android. El candidato debe tener conocimientos en Swift, Kotlin y el desarrollo de interfaces de usuario.
+            </p>
           </div>
           <button class="btn apply-btn">Aplicar</button>
         </article>
@@ -225,7 +217,9 @@
           <div class="job-card-content">
             <h3 class="job-title">Ingeniero de DevOps</h3>
             <p class="job-company">Cloud Services SA | Remoto</p>
-            <p class="job-description">Estamos buscando un ingeniero de DevOps con experiencia en la gestión de infraestructuras en la nube, automatización de procesos y herramientas de integración continua. Se requiere conocimiento en AWS, Azure o GCP.</p>
+            <p class="job-description">Estamos buscando un ingeniero de DevOps con experiencia en la gestión de
+              infraestructuras en la nube, automatización de procesos y herramientas de integración continua. Se
+              requiere conocimiento en AWS, Azure o GCP.</p>
           </div>
           <button class="btn apply-btn">Aplicar</button>
         </article>
@@ -234,7 +228,8 @@
           <div class="job-card-content">
             <h3 class="job-title">Diseñador UI/UX</h3>
             <p class="job-company">Creative Design Studio | Monterrey</p>
-            <p class="job-description">Buscamos un diseñador UI/UX con experiencia en diseño de interfaces de usuario y experiencia de usuario. El candidato debe tener conocimientos en Figma, Adobe XD y prototipado.</p>
+            <p class="job-description">Buscamos un diseñador UI/UX con experiencia en diseño de interfaces de usuario y
+              experiencia de usuario. El candidato debe tener conocimientos en Figma, Adobe XD y prototipado.</p>
           </div>
           <button class="btn apply-btn">Aplicar</button>
         </article>
@@ -243,7 +238,8 @@
           <div class="job-card-content">
             <h3 class="job-title">Desarrollador Full Stack</h3>
             <p class="job-company">Startup Innovadora | Remoto</p>
-            <p class="job-description">Buscamos un desarrollador full stack con experiencia en tecnologías frontend y backend. El candidato debe tener conocimientos en React, Node.js, MongoDB y AWS.</p>
+            <p class="job-description">Buscamos un desarrollador full stack con experiencia en tecnologías frontend y
+              backend. El candidato debe tener conocimientos en React, Node.js, MongoDB y AWS.</p>
           </div>
           <button class="btn apply-btn">Aplicar</button>
         </article>

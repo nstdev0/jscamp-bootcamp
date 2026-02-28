@@ -1,4 +1,3 @@
-/* Aquí va la lógica para filtrar los resultados de búsqueda */
 import { jobs, renderJobs } from "./fetch-data.js";
 
 const filterLocation = document.getElementById("filter-location");

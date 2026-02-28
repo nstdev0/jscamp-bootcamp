@@ -22,7 +22,7 @@ Quedan algunos detalles por corregir previo a dar el ejercicio como válido, per
 
 En el código vas a ver unos cuantos comentarios que explican que se cambió y porque. Cualquier duda la puedes dejar en los comentarios, y en la siguiente revisión la podemos responder.
 
-### Tisp
+### Tips
 
 Puedes ver aquí un botón dentro del inspector de código que te permite ver como se ve el documento desde el punto de vista de un lector de pantalla.
 

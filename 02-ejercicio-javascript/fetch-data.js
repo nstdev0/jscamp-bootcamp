@@ -1,4 +1,3 @@
-/* Aquí va la lógica para mostrar los resultados de búsqueda */
 export let jobs = [];
 
 export async function fetchData() {
@@ -30,8 +29,15 @@ export const renderJobs = (jobsToRender) => {
 
     const button = document.createElement("button");
     button.classList.add("button-apply-job");
-    button.textContent = "Aplicar";
     button.dataset.id = job.id;
+
+    if (job.applied) {
+      button.textContent = "¡Aplicado!";
+      button.classList.add("is-applied");
+      button.disabled = true;
+    } else {
+      button.textContent = "Aplicar";
+    }
 
     article.appendChild(button);
     li.appendChild(article);
