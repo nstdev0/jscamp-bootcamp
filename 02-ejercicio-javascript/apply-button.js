@@ -1,5 +1,6 @@
-import { jobs } from "./fetch-data.js";
+// Excelente! Muy bien aplicado :)
 
+/* Aquí va la lógica para dar funcionalidad al botón de "Aplicar" */
 const jobsListingCard = document.querySelector(".jobs-listings");
 
 jobsListingCard.addEventListener("click", (e) => {
