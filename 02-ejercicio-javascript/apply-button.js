@@ -9,5 +9,11 @@ jobsListingCard.addEventListener("click", (e) => {
     button.textContent = "¡Aplicado!";
     button.classList.add("is-applied");
     button.disabled = true;
+
+    const jobId = button.dataset.id;
+    const job = jobs.find(j => j.id === jobId);
+    if (job) {
+      job.applied = true;
+    }
   }
 });

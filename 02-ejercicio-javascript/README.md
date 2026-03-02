@@ -15,7 +15,6 @@ Muestra la lista dentro del elemento `ul` en `empleos.html`
 
 ```html
 <ul class="jobs-listings">
-  <!-- Aquí se insertan los empleos dinámicamente -->
 </ul>
 ```
 
